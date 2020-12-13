@@ -1,25 +1,10 @@
 import React from "react"
 
-import { graphql, useStaticQuery } from "gatsby"
-import Img from 'gatsby-image'
-
 const InfoBox = () => {
-  const data = useStaticQuery(graphql`
-      query InfoBoxQuery {
-          infobox: file(relativePath: { eq: "infoBox1.svg" }) {
-              childImageSharp {
-                  fluid(maxWidth: 440, maxHeight: 411) {
-                      ...GatsbyImageSharpFluid_noBase64
-                  }
-              }
-          }
-      }
-  `);
-
   return (<section className="infoBox">
     <div className="infoBoxContainer">
       <div className="infoBox__left">
-        <h3 className="infoBox--header">
+        <h3 className="sectionHeader infoBox--header">
           Płać mniej i oszczędzaj dzięki naszemu doświadczeniu
         </h3>
         <p className="infoBox--text">

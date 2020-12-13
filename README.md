@@ -1,5 +1,5 @@
 Company website for accounting office
 
-Stack: Gatsby, React
+<b>Stack</b>: Gatsby, React
 
-Libraries: react-helmet
+<b>Libraries</b>: react-helmet, Formik, Yup, GSAP

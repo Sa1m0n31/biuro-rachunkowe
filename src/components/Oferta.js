@@ -23,8 +23,8 @@ const Oferta = () => {
       }
   `);
 
-  return <section className="ofertaSection">
-    <header className="ofertaSection__header">
+  return <section className="ofertaSection" id="oferta">
+    <header className="sectionHeader">
       <h2>Nasza oferta</h2>
     </header>
     <main className="ofertaList">
