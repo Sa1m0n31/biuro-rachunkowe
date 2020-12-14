@@ -10,6 +10,10 @@ const Form = () => {
   let [submitted, setSubmitted] = useState(false);
 
   const form = useRef(null);
+  const l1 = useRef(null);
+  const l2 = useRef(null);
+  const l3 = useRef(null);
+  const l4 = useRef(null);
 
   const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
@@ -44,6 +48,22 @@ const Form = () => {
     }
   })
 
+  const handleDefocus = () => {
+    l1.current.style.border = "none";
+    l2.current.style.border = "none";
+    l3.current.style.border = "none";
+    l4.current.style.border = "none";
+  }
+
+  const handleFocus = (n) => {
+    handleDefocus();
+
+    if(n === 1) l1.current.style.border = "2px solid #3BA093";
+    else if(n === 2) l2.current.style.border = "2px solid #3BA093";
+    else if(n === 3) l3.current.style.border = "2px solid #3BA093";
+    else l4.current.style.border = "2px solid #3BA093";
+  }
+
   return (<section className="formSection" id="contact">
     <header className="formHeader">
       <h2>Wypełnij formularz i zostaw do siebie kontakt, a my oddzwonimy do Ciebie i umówimy się na konsultacje.</h2>
@@ -51,40 +71,45 @@ const Form = () => {
 
     <main className="formMain" ref={form}>
       <form className="form" method="POST" action="#" onSubmit={formik.handleSubmit}>
-        <label className="label">
+        <label className="label" ref={l1}>
           <img className="inputIcon" src={require("../../static/img/user.svg")} alt="imie-i-nazwisko" />
           <input className="input"
                  name="name"
                  placeholder="Imię i nazwisko"
                  type="text"
+                 onFocus={() => handleFocus(1)}
+                 onBlur={() => handleDefocus()}
                  {... formik.getFieldProps("name")}
           />
         </label>
 
-        <label className="label">
+        <label className="label" ref={l2}>
           <img className="inputIcon" src={require("../../static/img/phone.svg")} alt="numer-telefonu" />
           <input className="input"
                  name="phoneNumber"
                  placeholder="Numer telefonu"
                  type="text"
+                 onFocus={() => handleFocus(2)}
                  {... formik.getFieldProps("phoneNumber")}
           />
         </label>
 
-        <label className="label">
+        <label className="label" ref={l3}>
           <img className="inputIcon" src={require("../../static/img/mail.svg")} alt="adres-email" />
           <input className="input"
                  name="email"
                  placeholder="Adres email"
                  type="text"
+                 onFocus={() => handleFocus(3)}
                  {... formik.getFieldProps("email")}
           />
         </label>
 
         <label className="textAreaLabel">
-          <textarea className="textarea"
+          <textarea className="textarea" ref={l4}
                     name="msg"
                     placeholder="Uwagi, prośby (opcjonalnie)"
+                    onFocus={() => handleFocus(4)}
                     {... formik.getFieldProps("msg")}
           />
         </label>

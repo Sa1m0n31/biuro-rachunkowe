@@ -1,0 +1,121 @@
+// Import
+
+@import './global.sass'
+
+// ONas
+
+@media(max-width: 1800px)
+  .oNasSection
+    padding: 40px calc((100vw - 1400px) / 2) 80px calc((100vw - 1400px) / 2)
+
+  .oNasP1__main
+    .main__right
+      .oNasP1__kalkulator
+        width: 80%
+        height: auto
+
+@media(max-width: 1500px)
+  .oNasSection
+    padding: 40px 5vw 30px 5vw
+
+    .oNasP1__header
+      font-size: calc(20px + 20 * ((100vw - 400px)/(1100)))
+
+@media(max-width: 1200px)
+  .oNasSection
+
+    // Onas P2
+
+    .oNasP2__header
+      font-size: calc(18px + 20 * ((100vw - 400px)/(800)))
+
+    .oNasP2__main
+      flex-direction: column
+
+      .oNasP2__item
+        width: 75%
+        align-items: center
+        text-align: center
+
+        .oNasP2__header
+          font-size: calc(18px + 16 * ((100vw - 400px)/(800)))
+          font-weight: 700
+
+        .oNasP2__text
+          font-size: calc(16px + 10 * ((100vw - 400px)/(800)))
+
+      .oNasP2__item:nth-child(even)
+        align-items: center
+        text-align: center
+
+  // ONas P1
+
+  .oNasP1
+    padding-left: 0
+    padding-right: 0
+
+    .oNasP1__main
+      flex-direction: column
+      padding-bottom: 30px
+      width: 100%
+
+      .main__left, .main__right
+        width: 75%
+        padding-left: 0
+        padding-right: 0
+
+        h2
+          margin-bottom: 10px
+
+        p
+          font-size: calc(16px + 10 * ((100vw - 400px)/(800)))
+
+    .oNasP1__header
+      padding-left: 12.5vw
+
+      &::before
+        margin-left: 12.5vw
+
+  // ONas P3
+
+  .oNasP3
+    align-items: center
+    flex-direction: column
+
+    .oNasP3__header
+      font-size: calc(20px + 20 * ((100vw - 400px)/(800)))
+
+      &::before
+        left: 50% !important
+        height: 5px
+        transform: translateX(-50%)
+
+    .main__left, .main__right
+      width: 75%
+
+    .main__right
+      margin: 40px 0
+      +flex(row, center, center)
+
+      img
+        width: 75%
+        height: auto
+
+    .main__left
+      text-align: center !important
+      +flex(column, flex-start, center)
+
+      .oNasP3__text
+        font-size: calc(16px + 10 * ((100vw - 400px)/(800)))
+
+@media(max-width: 700px)
+  .oNasP3
+    .main__left, .main__right
+      width: 90%
+
+  .oNasP2
+    padding-top: 0 !important
+
+    .oNasP2__main
+      .oNasP2__item
+        width: 90%

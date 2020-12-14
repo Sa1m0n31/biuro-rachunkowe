@@ -1,5 +1,6 @@
 import React from "react";
 
+import '../../static/sass/global.sass'
 import '../../static/sass/style.sass'
 import '../../static/sass/mobile.sass'
 
@@ -12,6 +13,16 @@ import Form from "../components/Form"
 import Footer from "../components/Footer"
 
 export default function Home() {
+  const scrollTop = () => {
+    if(typeof window !== 'undefined') {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth"
+      });
+    }
+  }
+
   return (<div className="container">
     <LandingPage />
     <Oferta />
@@ -20,5 +31,8 @@ export default function Home() {
     <Referencje />
     <Form />
     <Footer />
+    <button className="moveUpBtn" onClick={() => scrollTop()}>
+      <img src={require("../../static/img/podwojna-strzalka.svg")} alt="do-gory" />
+    </button>
     </div>)
 }

@@ -1,89 +1,39 @@
-// Font - Open Sans
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap')
+// Import
 
-// Variables
+@import './global.sass'
 
-$grey: #ECECEC
-$green: #3BA093
-$darkBlue0: #0F004E
-$darkBlue1: #150956
-$error: #ff0033
-$blueFooter: #25328F
-$footerSlogan: #112891
-$footerBottom: #DBDBDB
+// Top bar
 
-// Mixins
-
-=abs($top, $left)
-  position: absolute
-  top: $top
-  left: $left
-
-=absCenter()
-  position: absolute
-  top: 50%
-  left: 50%
-  transform: translate(-50%, -50%)
-
-=flex($dir, $hor, $ver)
-  display: flex
-  flex-direction: $dir
-  justify-content: $hor
-  align-items: $ver
-
-=btn($w, $h, $bck, $col)
-  width: $w
-  height: $h
-  background: $bck
-  color: $col
-  border-radius: $h
-  +flex(row, center, center)
-
-// Global
-
-*
-  box-sizing: border-box
-  margin: 0
-  padding: 0
-  font-family: 'Open sans', sans-serif
-
-html, body
-  overflow-x: hidden
-
-button
-  cursor: pointer
-
-button, input
-  border: none
-  outline: none
-
-.bold
-  font-weight: 700
-
-.sectionHeader h2
-  position: relative
-  text-align: center
-  color: $darkBlue1
-  font-size: 24px
-
-.sectionHeader h2::before
-  content: ""
-  +abs(-21px, 50%)
+.topBar
+  width: 1500px
+  height: 180px
+  border-radius: 90px
+  background: rgba(15, 0, 78, .9) // rgba(15, 0, 78, .9)
   transform: translateX(-50%)
-  width: 50px
-  height: 10px
-  background: $green
+  opacity: .9
+  color: #fff
+  padding: 0 40px
+  +abs(20px, 50%)
+  +flex(row, space-between, center)
 
-.d-none
-  display: none
+  .topBar__logo
+    width: 210px
+    height: 138px
 
-// Remove autofill selected background color in inputs
+    img
+      width: 100%
+      height: 100%
 
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active
-  -webkit-box-shadow: 0 0 0 30px white inset !important
+  .topBar__menu
+    list-style-type: none
+    +flex(row, center, center)
+
+    .topBar__menu__item
+      width: 160px
+      font-size: 20px
+      font-weight: 600
+      cursor: pointer
+
 
 // Landing page
 
@@ -98,32 +48,6 @@ input:-webkit-autofill:active
   position: relative
   width: 1640px
   margin: 0 auto
-
-  .topBar
-    width: 1500px
-    height: 180px
-    border-radius: 90px
-    background: transparent // ???
-    transform: translateX(-50%)
-    opacity: .9
-    color: #fff
-    padding: 0 40px
-    +abs(20px, 50%)
-    +flex(row, space-between, center)
-
-    .topBar__logo
-      width: 210px
-      height: 138px
-
-    .topBar__menu
-      list-style-type: none
-      +flex(row, center, center)
-
-      .topBar__menu__item
-        width: 160px
-        font-size: 20px
-        font-weight: 600
-        cursor: pointer
 
   .landingPage__slogan
     width: 622px
@@ -371,6 +295,8 @@ input:-webkit-autofill:active
   .refArrow
     background: transparent
 
+// Form
+
 .formSection
   width: 100%
   height: 953px
@@ -410,7 +336,7 @@ input:-webkit-autofill:active
 
         .input
           width: 100%
-          height: 41px
+          height: 37px
           border-top-right-radius: 41px
           border-bottom-right-radius: 41px
 
@@ -535,9 +461,6 @@ input:-webkit-autofill:active
       .footer__menu__item
         margin: 15px 0
 
-        a
-          text-decoration: none
-
     .no-margin
       margin-bottom: 0 !important
 
@@ -574,6 +497,4 @@ input:-webkit-autofill:active
       font-size: 14px
 
       a
-        text-decoration: none
-        color: #000
         font-weight: 600

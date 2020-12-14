@@ -1,9 +1,9 @@
 import React from "react"
 
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery, Link } from "gatsby"
 import Img from "gatsby-image"
 
-const TopBar = () => {
+const TopBar = ({frontPage}) => {
   const data = useStaticQuery(graphql`
       query TopBarQuery {
           logo: file(relativePath: { eq: "logo.webp" }) {
@@ -17,7 +17,7 @@ const TopBar = () => {
   `);
 
   const handleScroll = (arg) => {
-    if((typeof document !== 'undefined')&&(typeof window !== 'undefined')) {
+    if((typeof document !== 'undefined')&&(typeof window !== 'undefined')&&(frontPage)) {
       let dest;
       if(arg === 1) dest = document.querySelector("#oferta");
       else dest = document.querySelector("#contact");
@@ -27,15 +27,28 @@ const TopBar = () => {
         behavior: "smooth"
       });
     }
+    else {
+      if(typeof window !== 'undefined') {
+        if(arg === 1) {
+          window.location = "/#oferta";
+        }
+        else {
+          window.location = "/#contact";
+        }
+      }
+    }
   }
 
   return <menu className="topBar">
-    <Img className="topBar__logo" fluid={data.logo.childImageSharp.fluid} alt="alt" />
+    <Link className="topBar__logo" to="/">
+      <Img className="topBar__logo" fluid={data.logo.childImageSharp.fluid} alt="alt" />
+    </Link>
+
     <ul className="topBar__menu">
-      <li className="topBar__menu__item">Start</li>
-      <li className="topBar__menu__item">O nas</li>
+      <li className="topBar__menu__item"><Link to="/">Start</Link></li>
+      <li className="topBar__menu__item"><Link to="/o-nas">O nas</Link></li>
       <li className="topBar__menu__item" onClick={() => handleScroll(1)}>Oferta</li>
-      <li className="topBar__menu__item">FAQ</li>
+      <li className="topBar__menu__item"><Link to="/faq">FAQ</Link></li>
       <li className="topBar__menu__item" onClick={() => handleScroll(2)}>Kontakt</li>
     </ul>
   </menu>

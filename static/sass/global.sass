@@ -1,0 +1,122 @@
+// Font - Open Sans
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap')
+
+// Variables
+
+$grey: #ECECEC
+$green: #3BA093
+$darkBlue0: #0F004E
+$darkBlue1: #150956
+$error: #ff0033
+$blueFooter: #25328F
+$footerSlogan: #112891
+$footerBottom: #DBDBDB
+
+// Mixins
+
+=abs($top, $left)
+  position: absolute
+  top: $top
+  left: $left
+
+=absCenter()
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+
+=flex($dir, $hor, $ver)
+  display: flex
+  flex-direction: $dir
+  justify-content: $hor
+  align-items: $ver
+
+=btn($w, $h, $bck, $col)
+  width: $w
+  height: $h
+  background: $bck
+  color: $col
+  border-radius: $h
+  +flex(row, center, center)
+
+// Global
+
+*
+  box-sizing: border-box
+  margin: 0
+  padding: 0
+  font-family: 'Open sans', sans-serif
+
+html, body
+  overflow-x: hidden
+
+.container
+  position: relative
+  background: #fff
+
+button
+  cursor: pointer
+
+button, input
+  border: none
+  outline: none
+
+.bold
+  font-weight: 700
+
+.sectionHeader h2
+  position: relative
+  text-align: center
+  color: $darkBlue1
+  font-size: 24px
+
+.sectionHeader h2::before
+  content: ""
+  +abs(-21px, 50%)
+  transform: translateX(-50%)
+  width: 50px
+  height: 10px
+  background: $green
+
+.moveUpBtn
+  position: fixed
+  bottom: 20px
+  right: 20px
+  width: 60px
+  height: 60px
+  border-radius: 50%
+  background: $green
+  z-index: 10
+  transition: .2s
+  +flex(row, center, center)
+
+  img
+    width: 30px
+    height: 30px
+    transform: rotate(-90deg)
+
+.d-none
+  display: none
+
+a
+  text-decoration: none
+  color: inherit
+
+// Remove autofill selected background color in inputs
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active
+  -webkit-box-shadow: 0 0 0 30px white inset !important
+
+// Mobile - moveUpBtn
+
+@media(max-width: 700px)
+  .moveUpBtn
+    width: 40px
+    height: 40px
+
+    img
+      width: 20px
+      height: 20px
