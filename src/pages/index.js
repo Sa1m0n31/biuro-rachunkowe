@@ -9,6 +9,7 @@ import InfoBox from "../components/InfoBox"
 import Cerfytikaty from "../components/Certyfikaty"
 import Referencje from "../components/Referencje"
 import Form from "../components/Form"
+import Footer from "../components/Footer"
 
 export default function Home() {
   return (<div className="container">
@@ -18,5 +19,6 @@ export default function Home() {
     <Cerfytikaty />
     <Referencje />
     <Form />
+    <Footer />
     </div>)
 }
